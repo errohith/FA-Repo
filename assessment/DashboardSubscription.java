@@ -26,7 +26,7 @@ public class DashboardSubscription {
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		WebDriverManager.chromedriver().setup();
-		
+//		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
 		ChromeOptions options =  new ChromeOptions();
 		//Disable Notifications  
 		options.addArguments("--disable-notifications");
@@ -78,7 +78,7 @@ public class DashboardSubscription {
 			driver.findElement(By.xpath("//input[@id='dashboardDescriptionInput']")).sendKeys("Workout Created"); 
 			driver.findElement(By.id("submitBtn")).click();
 			Thread.sleep(2000);
-			WebElement element = driver.findElement(By.xpath("//button[text()='Done']"));
+			WebElement element = driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[1]/div[2]/div[2]/button"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);			
 			driver.findElement(By.xpath("//button[text()='Subscribe']")).click();			
@@ -88,19 +88,8 @@ public class DashboardSubscription {
 			Drop1.selectByValue("10:00 AM");
 			driver.findElement(By.xpath("//button[@title='Save']")).click();			
 			WebElement Nameone = driver.findElement(By.xpath("//span[@class='toastMessage slds-text-heading--small forceActionsText']"));
-			
 			String profilename = Nameone.getText();			
-			System.out.println(profilename);			
-			String Expected = "You started a dashboard subscription.";
-				if (profilename.contains(Expected))
-						{
-					System.out.println("Verfied");
-				}
-				else
-				{
-					System.out.println("Not Verifed");
-				}
-				
+			Assert.assertEquals(profilename,"You started a dashboard subscription.");
 			driver.findElement(By.xpath("//button[@class='slds-button slds-button_icon slds-button_icon-x-small slds-button_icon-container']")).click();
 			driver.findElement(By.xpath("(//a[@class=\"slds-nav-vertical__action\"])[3]")).click();
 			Thread.sleep(1000);
@@ -111,17 +100,55 @@ public class DashboardSubscription {
 			List<WebElement> tdElements = driver.findElements(By.xpath("//table[contains(@class,'slds-table_edit')]/tbody/tr[1]/td"));
 			driver.findElement(By.xpath("//table[contains(@class,'slds-table_edit')]/tbody/tr[1]/td["+(tdElements.size())+"]//button")).click();
 			driver.findElement(By.xpath("//a[@role='menuitem']/span[text()='Delete']")).click();
-					
 			driver.findElement(By.xpath("//button[@title='Delete']")).click();
-			actualText=driver.findElement(By.xpath("//span[contains(@class,'toastMessage')]")).getText();
-							
+			actualText=driver.findElement(By.xpath("//span[contains(@class,'toastMessage')]")).getText();		
 			Assert.assertEquals(actualText,"Dashboard was deleted.");
-			
-				
 			resultText=driver.findElement(By.xpath("//span[@class='emptyMessageTitle']")).getText();
 			Assert.assertEquals(resultText,"No results found");
 			}
-							
+		else
+		{
+			driver.findElement(By.xpath("//button[@title='Show Navigation Menu']")).click();
+			driver.findElement(By.xpath("//span[text()='Dashboards']")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//div[text()='New Dashboard']")).click();
+			Thread.sleep(1000);
+			WebElement FrameEle = driver.findElement(By.xpath("//iframe[@title='dashboard']"));
+			driver.switchTo().frame(FrameEle);
+			WebElement Dname = driver.findElement(By.xpath("//input[@id='dashboardNameInput']"));
+			Dname.sendKeys("Rohith_Workout");
+			driver.findElement(By.xpath("//input[@id='dashboardDescriptionInput']")).sendKeys("Workout Created"); 
+			driver.findElement(By.id("submitBtn")).click();
+			Thread.sleep(2000);
+			WebElement element = driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[1]/div[2]/div[2]/button"));
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);			
+			driver.findElement(By.xpath("//button[text()='Subscribe']")).click();			
+			driver.findElement(By.xpath("//span[text()='Daily']")).click();			
+			WebElement Source = driver.findElement(By.xpath("//select[@id='time']"));
+			Select Drop1 = new Select(Source);
+			Drop1.selectByValue("10:00 AM");
+			driver.findElement(By.xpath("//button[@title='Save']")).click();			
+			WebElement Nameone = driver.findElement(By.xpath("//span[@class='toastMessage slds-text-heading--small forceActionsText']"));
+			String profilename = Nameone.getText();			
+			Assert.assertEquals(profilename,"You started a dashboard subscription.");
+			driver.findElement(By.xpath("//button[@class='slds-button slds-button_icon slds-button_icon-x-small slds-button_icon-container']")).click();
+			driver.findElement(By.xpath("(//a[@class=\"slds-nav-vertical__action\"])[3]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//input[@class=\"search-text-field slds-input input uiInput uiInputText uiInput--default uiInput--input\"]")).sendKeys("Rohith_Workout");
+			Thread.sleep(2000);
+			WebElement tableElement = driver.findElement(By.xpath("//table[contains(@class,'slds-table_edit')]/tbody/tr[1]/th//a[contains(@title,'"+dashboardName+"')]"));
+			wait.until(ExpectedConditions.elementToBeClickable(tableElement));
+			List<WebElement> tdElements = driver.findElements(By.xpath("//table[contains(@class,'slds-table_edit')]/tbody/tr[1]/td"));
+			driver.findElement(By.xpath("//table[contains(@class,'slds-table_edit')]/tbody/tr[1]/td["+(tdElements.size())+"]//button")).click();
+			driver.findElement(By.xpath("//a[@role='menuitem']/span[text()='Delete']")).click();
+			driver.findElement(By.xpath("//button[@title='Delete']")).click();
+			actualText=driver.findElement(By.xpath("//span[contains(@class,'toastMessage')]")).getText();		
+			Assert.assertEquals(actualText,"Dashboard was deleted.");
+			resultText=driver.findElement(By.xpath("//span[@class='emptyMessageTitle']")).getText();
+			Assert.assertEquals(resultText,"No results found");
+		}
+			
 			
 		}
 		

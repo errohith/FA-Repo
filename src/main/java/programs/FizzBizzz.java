@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 public class FizzBizzz {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		Scanner myInput = new Scanner( System.in );
+		Scanner MyInput = new Scanner( System.in );
 		System.out.println("Enter first number");
-		int a= myInput.nextInt();
+		int a= MyInput.nextInt();
 		System.out.println("Enter second number");
-		int b= myInput.nextInt();
+		int b= MyInput.nextInt();
 		for (int i=a;i<=b;i++) {
 			if(i%3==0) {
 				System.out.println(i+ "Fuzz");

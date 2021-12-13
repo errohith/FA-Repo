@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<parameter name="url" value="https://login.salesforce.com/"></parameter>
+<parameter name="UserName" value="fullstack@testleaf.com"></parameter>
+<parameter name="PassWord" value="SelBootcamp$123"></parameter>
+
+  <test thread-count="5" parallel="classes" name="Test" verbose = "5" >
+  	<parameter name="Browser" value="Chrome"></parameter>
+    <classes>
+      <class name="testNGClass.DeleteWorkTypeGroups"/>
+      <class name="testNGClass.CreateWorkTypeGroups"/>
+      <class name="testNGClass.EditWorkTypeGroups"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

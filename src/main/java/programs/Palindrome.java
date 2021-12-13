@@ -8,7 +8,8 @@ public class Palindrome {
 		// TODO Auto-generated method stub
 		{  
 		      String original, reverse = ""; 
-		      Scanner in = new Scanner(System.in);   
+		      @SuppressWarnings("resource")
+			Scanner in = new Scanner(System.in);   
 		      System.out.println("Enter a string/number to check if it is a palindrome");  
 		      original = in.nextLine();   
 		      int length = original.length();   

@@ -36,7 +36,7 @@ WebDriverManager.chromedriver().setup();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//button[@class='slds-button slds-button--neutral rightArrowButton uiButton']")).click();
 //		driver.findElement(By.xpath("//span[text()='Download SalesforceA']")).click();
-		WebElement AppStore = driver.findElement(By.xpath("//button[@title='App Store']"));
+		WebElement AppStore = driver.findElement(By.xpath("//button[@title='Google Play']"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(AppStore).pause(3000).click(AppStore).perform();
 		Thread.sleep(5000);

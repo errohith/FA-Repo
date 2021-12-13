@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <parameter name="UserName" value="fullstack@testleaf.com"/>
+  <parameter name="url" value="https://login.salesforce.com/"/>
+  <parameter name="PassWord" value="SelBootcamp$123"/>
+  <test thread-count="5" parallel="classes" name="Test(failed)">
+    <parameter name="Browser" value="Chrome"/>
+    <classes>
+      <class name="pom.TestCases.PomDeleteCase">
+        <methods>
+          <include name="postcondition"/>
+          <include name="creatCase" invocation-numbers="0"/>
+          <include name="setdata"/>
+          <include name="precondition"/>
+        </methods>
+      </class> <!-- pom.TestCases.PomDeleteCase -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

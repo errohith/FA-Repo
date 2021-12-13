@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-10-30T11:55:06 IST" name="Suite" finished-at="2021-10-30T11:55:23 IST" duration-ms="16656">
+    <groups>
+    </groups>
+    <test started-at="2021-10-30T11:55:06 IST" name="Test" finished-at="2021-10-30T11:55:23 IST" duration-ms="16656">
+      <class name="pom.TestCases.PomDeleteCase">
+        <test-method is-config="true" signature="setdata()[pri:0, instance:pom.TestCases.PomDeleteCase@5fe94a96]" started-at="2021-10-30T11:55:06 IST" name="setdata" finished-at="2021-10-30T11:55:06 IST" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setdata -->
+        <test-method is-config="true" signature="precondition(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:pom.TestCases.PomDeleteCase@5fe94a96]" started-at="2021-10-30T11:55:07 IST" name="precondition" finished-at="2021-10-30T11:55:19 IST" duration-ms="11866" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://login.salesforce.com/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[fullstack@testleaf.com]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[SelBootcamp$123]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="creatCase(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:pom.TestCases.PomDeleteCase@5fe94a96]" started-at="2021-10-30T11:55:19 IST" name="creatCase" data-provider="getData" finished-at="2021-10-30T11:55:19 IST" duration-ms="11" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Sales]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[`00001292]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[No items to display.]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at pages.PomCaseHomePage.HomePageAction(PomCaseHomePage.java:13)
+at pom.TestCases.PomDeleteCase.creatCase(PomDeleteCase.java:23)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+at java.base/java.lang.Thread.run(Thread.java:830)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- creatCase -->
+        <test-method is-config="true" signature="postcondition()[pri:0, instance:pom.TestCases.PomDeleteCase@5fe94a96]" started-at="2021-10-30T11:55:19 IST" name="postcondition" finished-at="2021-10-30T11:55:23 IST" duration-ms="4160" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postcondition -->
+      </class> <!-- pom.TestCases.PomDeleteCase -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
